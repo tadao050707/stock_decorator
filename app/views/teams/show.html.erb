@@ -11,7 +11,6 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%#= link_to "削除する", team_grouping_path(@team, @team.groupings), method: :delete, class: "btn btn-danger" %></td>
         <td><%= link_to "削除する", team_grouping_path(@team, @team.groupings.ids), method: :delete, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
