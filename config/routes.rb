@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sales
   resources :teams do
     resources :groupings
   end
