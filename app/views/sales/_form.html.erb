@@ -48,15 +48,11 @@
       <%= sd.label :個数 %>
       <%= sd.text_field :quantity %>
     </div>
-
-    <div class="product_id">
-      <%= sd.hidden_field :product_id, value: product.id %> <!-- パラメータでproduct_idを渡すため。-->
-    </div>
-  <% end %>
   
     <div class="sale_total">
       <p>合計:</p>
-    </div>  
+    </div> 
+  <% end %>
 
   <%= form.submit %>
 <% end %>
