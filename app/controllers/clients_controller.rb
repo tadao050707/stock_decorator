@@ -15,8 +15,8 @@ class ClientsController < ApplicationController
   end
 
   def create
-    # @client = current_user.clients.build(client_params)
-    @client = Client.new(client_params)
+    @client = current_user.clients.build(client_params)
+    # @client = Client.new(client_params)
     # @client.user_id = current_user.id
     if @client.save
       redirect_to edit_client_path(@client.id), notice: "得意先を登録しました！"
