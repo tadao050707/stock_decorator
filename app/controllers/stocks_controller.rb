@@ -1,4 +1,4 @@
 class StocksController < ApplicationController
-  def index
+  def show
   end
 end
