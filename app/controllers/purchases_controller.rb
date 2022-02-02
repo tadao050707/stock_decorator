@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     1.times { @purchase.purchase_details.build }
-    @products = Product.where(user_id: current_user.id)
+    # @products = Product.where(user_id: current_user.id)
   end
 
   def create

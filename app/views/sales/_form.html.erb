@@ -42,7 +42,7 @@
       <p>商品<%= "#{sd.index+1}" %></p>
     </strong>
 
-    <%= sd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。 -->
+    <%= sd.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %> <!-- @productsではundefined method `map' for nil:NilClassエラーになる。-->
 
     <div class="sd_quantity">
       <%= sd.label :個数 %>
