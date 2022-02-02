@@ -16,7 +16,7 @@ class PurchasesController < ApplicationController
     # @purchase = Purchase.new(purchase_params)
     # @purchase.user_id = current_user.id
     if @purchase.save
-      redirect_to edit_purchase_path(@purchase.id), notice: "売上を登録しました！"
+      redirect_to edit_purchase_path(@purchase.id), notice: "仕入を登録しました！"
     else
       render :new
     end    
@@ -29,7 +29,7 @@ class PurchasesController < ApplicationController
 
   def update    
     if @purchase.update(purchase_params)
-      redirect_to edit_purchase_path(@purchase.id), notice: "売上を編集しました！"
+      redirect_to edit_purchase_path(@purchase.id), notice: "仕入を編集しました！"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class PurchasesController < ApplicationController
 
   def destroy
     @purchase.destroy
-    redirect_to purchases_path, notice: "売上を削除しました！"
+    redirect_to purchases_path, notice: "仕入を削除しました！"
   end
 
   private
