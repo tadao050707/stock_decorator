@@ -14,12 +14,12 @@
   
   <div class="purchase_code">
     <%= form.label :code %>
-    <%= form.text_field :code, placeholder: "売上コード" %>
+    <%= form.text_field :code, placeholder: "仕入コード" %>
   </div>
   
   <div class="purchase_date_at">
     <%= form.label :date_at %>
-    <%= form.date_field :date_at, placeholder: "売上日" %>
+    <%= form.date_field :date_at, placeholder: "仕入日" %>
   </div>
 
   <div class="purchase_supplier_id">
@@ -58,4 +58,4 @@
 <% end %>
 
 <%= link_to 'メインメニュー', menus_path %>
-<%= link_to '売上一覧', purchases_path %>
+<%= link_to '仕入一覧', purchases_path %>
