@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'purchases/index'
-  get 'purchases/new'
-  get 'purchases/edit'
+  resources :purchases
   resources :sales
   resources :teams do
     resources :groupings
