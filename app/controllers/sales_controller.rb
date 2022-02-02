@@ -8,7 +8,9 @@ class SalesController < ApplicationController
   def new
     @sale = Sale.new
     1.times { @sale.sale_details.build }
-    @products = Product.where(user_id: current_user.id)
+    # @products = Product.where(user_id: current_user.id)
+    # @clients = Client.team.where(user_id: current_user.id)
+
   end
 
   def create
