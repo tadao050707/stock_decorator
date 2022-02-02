@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_103151) do
+ActiveRecord::Schema.define(version: 2022_02_02_020329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,29 @@ ActiveRecord::Schema.define(version: 2022_02_01_103151) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "purchase_details", force: :cascade do |t|
+    t.bigint "quantity"
+    t.bigint "purchase_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_purchase_details_on_product_id"
+    t.index ["purchase_id"], name: "index_purchase_details_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "code", null: false
+    t.date "date_at", null: false
+    t.integer "inputter", null: false
+    t.integer "total"
+    t.bigint "supplier_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -102,6 +125,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_103151) do
     t.bigint "code", null: false
     t.date "date_at", null: false
     t.integer "inputter", null: false
+    t.integer "total"
     t.bigint "client_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -159,6 +183,10 @@ ActiveRecord::Schema.define(version: 2022_02_01_103151) do
   add_foreign_key "groupings", "teams"
   add_foreign_key "groupings", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "purchase_details", "products"
+  add_foreign_key "purchase_details", "purchases"
+  add_foreign_key "purchases", "suppliers"
+  add_foreign_key "purchases", "users"
   add_foreign_key "questions", "users"
   add_foreign_key "sale_details", "products"
   add_foreign_key "sale_details", "sales"

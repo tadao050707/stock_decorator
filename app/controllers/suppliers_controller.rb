@@ -19,7 +19,7 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.new(supplier_params)
     # @supplier.user_id = current_user.id
     if @supplier.save
-      redirect_to edit_supplier_path(@supplier.id), notice: "得意先を登録しました！"
+      redirect_to edit_supplier_path(@supplier.id), notice: "仕入先を登録しました！"
     else
       render :new
     end    
@@ -30,7 +30,7 @@ class SuppliersController < ApplicationController
 
   def update
     if @supplier.update(supplier_params)
-      redirect_to edit_supplier_path(@supplier.id), notice: "得意先を編集しました！"
+      redirect_to edit_supplier_path(@supplier.id), notice: "仕入先を編集しました！"
     else
       render :edit
     end

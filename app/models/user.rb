@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :purchases
   has_many :sales
   has_many :groupings, dependent: :destroy
   has_one :team  
