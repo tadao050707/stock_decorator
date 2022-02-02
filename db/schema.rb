@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_020329) do
     t.bigint "code", null: false
     t.date "date_at", null: false
     t.integer "inputter", null: false
+    t.integer "total"
     t.bigint "client_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
