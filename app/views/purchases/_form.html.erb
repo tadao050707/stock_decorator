@@ -37,16 +37,16 @@
     <%= form.hidden_field :inputter, value: current_user.id %> <!-- パラメータで入力者のidを渡すため。-->
   </div>
 
-  <%= form.fields_for :purchase_details do |sd| %>
+  <%= form.fields_for :purchase_details do |pc| %>
     <strong>
-      <p>商品<%= "#{sd.index+1}" %></p>
+      <p>商品<%= "#{pc.index+1}" %></p>
     </strong>
 
-    <%= sd.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %>
+    <%= pc.collection_select(:product_id, @products, :id, :name, prompt: "選択してください") %>
 
-    <div class="sd_quantity">
-      <%= sd.label :個数 %>
-      <%= sd.text_field :quantity %>
+    <div class="pc_quantity">
+      <%= pc.label :個数 %>
+      <%= pc.text_field :quantity %>
     </div>
   
     <div class="purchase_total">
