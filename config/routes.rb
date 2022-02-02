@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stocks/index'
   resources :purchases
   resources :sales
   resources :teams do
