@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def show
-    @products = Product.all
-    @sale_detail = SaleDetail.find_by(product_id: params[:id])
+    @purchase_detail = PurchaseDetail.where(product_id: params[:product_id])
+    @sale_detail = SaleDetail.where(product_id: params[:product_id])
   end
 end
