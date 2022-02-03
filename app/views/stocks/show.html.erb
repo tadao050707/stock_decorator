@@ -1,15 +1,27 @@
 <h2>在庫受払帳</h2>
-<%= form_with(model: @product, local: true) do |form| %>
+<%= form_with(model: @product, url: stocks_show_path, method: :get, local: true) do |form| %>
   <%= form.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %>
+  <%= form.submit %>
 <% end %>
  
-  <% @products.each do |p| %>
+  <% @purchase_detail.each do |pd| %>
     <tr>
-      <td><%= p.code %></td>
-      <td><%= p.name %></td>
-      <td><%= p.regular_price %></td>
-      <td><%= p.selling_price %></td>
-      <td><%= p.cost_price %></td>
-      <td><%= link_to '編集', edit_product_path(p.id) %></td>
+      <td><%= "仕入" %></td> 
+      <td><%= pd.purchase.date_at %></td>
+      <td><%= pd.purchase.supplier.name %></td>
+      <td><%= pd.quantity %></td>
+      <td><%= pd.product.cost_price %></td>
+      <td><%= link_to 'ページへGO', edit_purchase_path(pd.purchase_id) %></td>
+    </tr>
+  <% end %>
+
+  <% @sale_detail.each do |sd| %>
+    <tr>
+      <td><%= "売上" %></td> 
+      <td><%= sd.sale.date_at %></td>
+      <td><%= sd.sale.client.name %></td>
+      <td><%= sd.quantity %></td>
+      <td><%= sd.product.selling_price %></td>
+      <td><%= link_to 'ページへGO', edit_sale_path(sd.sale_id) %></td>
     </tr>
   <% end %>
