@@ -1,3 +1,15 @@
 <h2>在庫受払帳</h2>
 <%= form_with(model: @product, local: true) do |form| %>
-  <%= form.collection_select(:product_id, @product, :id, :name, prompt: "選択してください") %>
+  <%= form.collection_select(:product_id, Product.all, :id, :name, prompt: "選択してください") %>
+<% end %>
+ 
+  <% @products.each do |p| %>
+    <tr>
+      <td><%= p.code %></td>
+      <td><%= p.name %></td>
+      <td><%= p.regular_price %></td>
+      <td><%= p.selling_price %></td>
+      <td><%= p.cost_price %></td>
+      <td><%= link_to '編集', edit_product_path(p.id) %></td>
+    </tr>
+  <% end %>
