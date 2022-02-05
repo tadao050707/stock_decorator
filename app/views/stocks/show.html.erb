@@ -14,10 +14,10 @@
   </tr>
   <% @stock_details.each do | stock_detail | %>
     <tr>
-      <td><%= stock_detail.decorate.date_at_of_purchase_or_sale %></td>
-      <td><%= stock_detail.decorate.name_of_purchase_or_sale %></td>
+      <td><%= stock_detail.date_at_of_purchase_or_sale %></td>
+      <td><%= stock_detail.name_of_purchase_or_sale %></td>
       <td><%= "#{stock_detail.quantity}個" %></td>
-      <td><%= "#{stock_detail.product.decorate.price_of_purchase_or_sale}円" %></td>
+      <td><%= "#{stock_detail.price_of_purchase_or_sale}円" %></td>
     </tr>
   <% end %>
 </table>

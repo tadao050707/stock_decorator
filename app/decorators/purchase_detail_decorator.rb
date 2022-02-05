@@ -2,7 +2,7 @@
 
 module PurchaseDetailDecorator
   def date_at_of_purchase_or_sale
-    if purchase.present?
+    if purchase_id.present?
       purchase.date_at
     else
       sale.date_at
@@ -10,7 +10,7 @@ module PurchaseDetailDecorator
   end
 
   def name_of_purchase_or_sale
-    if purchase.present?
+    if purchase_id.present?
       purchase.supplier.name
     else
       sale.client.name
@@ -18,10 +18,10 @@ module PurchaseDetailDecorator
   end
 
   def price_of_purchase_or_sale
-    if purchase.present?
-      cost_price
+    if purchase_id.present?
+      product.cost_price
     else
-      selling_price
+      product.selling_price
     end
   end
 end
