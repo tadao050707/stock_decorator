@@ -11,10 +11,10 @@
     <td><%= pd.quantity %></td>
     <td><%= pd.product.cost_price %></td>
     <td><%= link_to 'ページへGO', edit_purchase_path(pd.purchase_id) %></td>
-    <td><%#= sd.sale.date_at %></td>
-    <td><%#= sd.sale.client.name %></td>
-    <td><%#= sd.quantity %></td>
-    <td><%#= sd.product.selling_price %></td>
-    <td><%#= link_to 'ページへGO', edit_sale_path(sd.sale_id) %></td>
+    <td><%= sd.sale.date_at %></td>
+    <td><%= sd.sale.client.name %></td>
+    <td><%= sd.quantity %></td>
+    <td><%= sd.product.selling_price %></td>
+    <td><%= link_to 'ページへGO', edit_sale_path(sd.sale_id) %></td>
   </tr>
 <% end %>
